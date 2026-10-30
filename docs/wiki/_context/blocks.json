@@ -1,0 +1,65 @@
+{
+  "blocks": [
+    {
+      "code": "graph TD\n    A[\"skills/ category folders\"] --> B[\"plugins/ symlink bundles\"]\n    B --> C[\"marketplace.json\"]\n    A --> D[\"GitHub workflows\"]\n    B --> D\n    D --> E[\"Port catalog\"]",
+      "start_line": 45,
+      "end_line": 52,
+      "start_pos": 3370,
+      "end_pos": 3565,
+      "id": "01_overview_mermaid_1",
+      "type": "flowchart",
+      "file_path": "docs/wiki/01_overview.md"
+    },
+    {
+      "code": "graph TD\n    A[\"skills/testing/writing-tests\"] --> B[\"code-quality-toolkit/skills/writing-tests\"]\n    A --> C[\"infrastructure-toolkit/skills/writing-tests\"]\n    B --> D[\"plugin.json\"]\n    C --> E[\"plugin.json\"]\n    D --> F[\"marketplace.json\"]\n    E --> F",
+      "start_line": 46,
+      "end_line": 54,
+      "start_pos": 4539,
+      "end_pos": 4808,
+      "id": "03_plugins_mermaid_1",
+      "type": "flowchart",
+      "file_path": "docs/wiki/03_plugins.md"
+    },
+    {
+      "code": "sequenceDiagram\n    participant P as Port\n    participant W as Publish workflow\n    participant G as GitHub\n    participant R as Resolve workflow\n    P->>W: dispatch with skill content\n    W->>G: push branch skill/slug\n    W->>G: open PR against main\n    W->>P: report SUCCESS or FAILED\n    P->>R: dispatch merge or close\n    R->>G: gh pr merge or close\n    R->>P: report result",
+      "start_line": 48,
+      "end_line": 61,
+      "start_pos": 5621,
+      "end_pos": 6014,
+      "id": "04_automation_mermaid_1",
+      "type": "sequence",
+      "file_path": "docs/wiki/04_automation.md"
+    },
+    {
+      "code": "graph TD\n    A[\"Validate inputs\"] --> B[\"Symlink and open PR\"]\n    B --> C[\"Mark suggestion accepted\"]\n    C --> D[\"Wait for checks\"]\n    D --> E{\"Checks pass?\"}\n    E -->|\"Yes\"| F[\"Merge and mark applied\"]\n    E -->|\"No\"| G[\"Report FAILED\"]\n    F --> H[\"Report to Port\"]\n    G --> H",
+      "start_line": 82,
+      "end_line": 92,
+      "start_pos": 9349,
+      "end_pos": 9647,
+      "id": "04_automation_mermaid_2",
+      "type": "flowchart",
+      "file_path": "docs/wiki/04_automation.md"
+    },
+    {
+      "code": "sequenceDiagram\n    participant M as main\n    participant S as sync_plugins\n    participant FS as plugins folder\n    participant P as Port API\n    M->>P: POST auth access_token\n    P-->>M: accessToken\n    M->>S: sync_plugins\n    S->>FS: list plugin folders\n    loop each plugin\n        S->>FS: resolve skill symlinks\n        S->>P: PATCH agentPlugin entity with skills relation\n    end",
+      "start_line": 43,
+      "end_line": 57,
+      "start_pos": 4507,
+      "end_pos": 4907,
+      "id": "05_port-sync_mermaid_1",
+      "type": "sequence",
+      "file_path": "docs/wiki/05_port-sync.md"
+    }
+  ],
+  "errors": [],
+  "metadata": {
+    "input_path": "docs/wiki",
+    "files_processed": 4,
+    "total_blocks": 5,
+    "total_errors": 0,
+    "type_counts": {
+      "flowchart": 3,
+      "sequence": 2
+    }
+  }
+}

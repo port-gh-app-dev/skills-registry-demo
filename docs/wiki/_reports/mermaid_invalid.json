@@ -1,0 +1,7 @@
+{
+  "invalid_blocks": [],
+  "total_invalid": 0,
+  "total_scanned": 5,
+  "files_affected": 0,
+  "note": "Validated with mmdc run directly on each page using a no-sandbox puppeteer config; the stock validate_mermaid.py could not launch the browser in this environment."
+}

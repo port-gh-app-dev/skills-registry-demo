@@ -1,0 +1,140 @@
+project:
+  name: "Skills Registry Demo"
+  description: "A curated registry of Cursor agent skills, bundled into plugins and synced to Port's service catalog via GitHub Actions."
+  repo_base_url: "https://github.com/port-gh-app-dev/skills-registry-demo/blob"
+  ref_commit_hash: "4140e5ec64a5bdbd04a267fd6b8aeb022f52fb33"
+  updated_at: "2026-10-30"
+
+pages:
+  - id: skills-registry-demo_01_overview
+    title: "Overview"
+    filename: "01_overview.md"
+    description: "Purpose, repository layout and contribution rules"
+    source_files:
+      - "README.md"
+      - "CONTRIBUTING.md"
+    sections:
+      - id: skills-registry-demo_01_overview_introduction
+        title: "Introduction"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+      - id: skills-registry-demo_01_overview_layout
+        title: "Repository Layout"
+        autogen: true
+        diagrams_needed: true
+        diagram_types: ["flowchart"]
+      - id: skills-registry-demo_01_overview_contributing
+        title: "Contributing"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+    related_pages:
+      - skills-registry-demo_02_skills-catalog
+
+  - id: skills-registry-demo_02_skills-catalog
+    title: "Skills Catalog"
+    filename: "02_skills-catalog.md"
+    description: "Skill categories, SKILL.md format and bundled helper scripts"
+    source_files:
+      - "README.md"
+      - "skills/infrastructure/adding-docker/SKILL.md"
+      - "skills/port-specific/run-self-service/helpers.py"
+    sections:
+      - id: skills-registry-demo_02_skills-catalog_categories
+        title: "Categories"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+      - id: skills-registry-demo_02_skills-catalog_format
+        title: "SKILL.md Format"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+      - id: skills-registry-demo_02_skills-catalog_helpers
+        title: "Helper Scripts"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+    related_pages:
+      - skills-registry-demo_03_plugins
+
+  - id: skills-registry-demo_03_plugins
+    title: "Plugins and Marketplace"
+    filename: "03_plugins.md"
+    description: "How skills are bundled into plugins via symlinks"
+    source_files:
+      - ".claude-plugin/marketplace.json"
+      - "plugins/port-ops-toolkit/.claude-plugin/plugin.json"
+      - "plugins/port-ops-toolkit/.cursor-plugin/plugin.json"
+      - "plugins/cursor-productivity-toolkit/.cursor-plugin/plugin.json"
+      - ".github/workflows/validate-plugin-symlinks.yml"
+    sections:
+      - id: skills-registry-demo_03_plugins_marketplace
+        title: "Marketplace Manifest"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+      - id: skills-registry-demo_03_plugins_structure
+        title: "Plugin Structure and Symlinks"
+        autogen: true
+        diagrams_needed: true
+        diagram_types: ["flowchart"]
+    related_pages:
+      - skills-registry-demo_04_automation
+
+  - id: skills-registry-demo_04_automation
+    title: "GitHub Actions Automation"
+    filename: "04_automation.md"
+    description: "Workflows that publish skills, bundle them and sync to Port"
+    source_files:
+      - ".github/workflows/*.yml"
+    sections:
+      - id: skills-registry-demo_04_automation_overview
+        title: "Workflow Overview"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+      - id: skills-registry-demo_04_automation_publish
+        title: "Publishing and Resolving Skill PRs"
+        autogen: true
+        diagrams_needed: true
+        diagram_types: ["sequence"]
+      - id: skills-registry-demo_04_automation_bundling
+        title: "Applying Bundling Suggestions"
+        autogen: true
+        diagrams_needed: true
+        diagram_types: ["flowchart"]
+      - id: skills-registry-demo_04_automation_validation
+        title: "Symlink Validation"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+    related_pages:
+      - skills-registry-demo_05_port-sync
+
+  - id: skills-registry-demo_05_port-sync
+    title: "Port Metadata Sync"
+    filename: "05_port-sync.md"
+    description: "The sync_plugin_metadata.py script"
+    source_files:
+      - "scripts/sync_plugin_metadata.py"
+      - ".github/workflows/sync-plugin-metadata.yml"
+    sections:
+      - id: skills-registry-demo_05_port-sync_purpose
+        title: "Purpose and Configuration"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+      - id: skills-registry-demo_05_port-sync_flow
+        title: "Sync Flow"
+        autogen: true
+        diagrams_needed: true
+        diagram_types: ["sequence"]
+      - id: skills-registry-demo_05_port-sync_api
+        title: "Function Reference"
+        autogen: true
+        diagrams_needed: false
+        diagram_types: []
+    related_pages:
+      - skills-registry-demo_03_plugins
